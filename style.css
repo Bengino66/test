@@ -1,0 +1,703 @@
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4; /* We'll change this to your Figma background color */
+}
+
+
+
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 102px; 
+    background-color: #ffffff;
+    display: flex;
+    align-items: center; /* This keeps the 30.94px logo centered in the 102px bar */
+    justify-content: space-between;
+    padding: 0 20px; 
+    border-bottom: 1px solid #eeeeee; /* Optional: a very light line like in many logistics apps */
+    z-index: 1000;
+}
+
+.logo {
+    width: 120px;
+    height: 30.94px; /* Exact height from your Figma */
+    object-fit: contain; /* Ensures the image doesn't distort */
+    display: block;
+
+}
+
+.nav-icons {
+    display: flex;
+    align-items: center; /* Keeps icons level with the logo text */
+    gap: 24px; /* Adjusting spacing to look like your screenshot */
+}
+
+.nav-icons i {
+    font-size: 28px; /* Matches the visual weight in your screenshot */
+    color: #000000;
+    cursor: pointer;
+}
+
+
+/* The Overlay Container */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%; 
+    height: 678px;
+    padding: 0 20px;
+    background-color: #ffffff;
+    z-index: 2000;
+    visibility: hidden; /* Add this: hides it from the browser's "layout" logic */
+    transform: translateX(100%); 
+    transition: transform 0.3s ease-in-out, visibility 0.3s;
+}
+
+.menu-overlay.active {
+    visibility: visible; /* Show it only when active */
+    transform: translateX(0);
+}
+
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 102px; /* Matching your navbar height */
+    margin-bottom: 50px;
+}
+
+.close-menu {
+    font-size: 35px;
+    cursor: pointer;
+}
+
+/* Center Links */
+.menu-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px; /* More space to match your screenshot */
+    margin-top: 40px; /* Space after the logo/header */
+    margin-bottom: 60px;
+}
+
+.menu-links a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 22px; /* Slightly larger for that "App" feel */
+    font-weight: 500;
+}
+
+.menu-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 320px; /* Centering the buttons within the 360px width */
+    margin: 0 auto;
+}
+
+.btn-signin {
+    background: transparent;
+    border: 1.5px solid #060057; /* Your exact brand blue */
+    color: #060057;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 700; /* Bold to match Figma */
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Hover effect for a "Premium" feel */
+.btn-signin:hover {
+    background-color: rgba(6, 0, 87, 0.05);
+}
+
+.btn-create {
+    background: #f01d0d; /* Brand Red */
+    border: none;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-create:hover {
+    background-color: #d81a0b; /* Slightly darker red on hover */
+}
+
+.hero {
+    width: 100%; 
+    height: 282.38px;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/Mask group.png');
+    background-size: cover;
+    background-position: center;
+    margin-top: 102px;
+    
+    /* Perfect Centering */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    
+    position: relative;
+    overflow: visible; /* Allows form to hang out the bottom */
+}
+
+.hero-form {
+    width: 300px;
+    height: 310px;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    
+    /* This makes it overlap the bottom of the image */
+    margin-top: -90px; 
+    z-index: 5;
+    position: relative;
+}
+
+.hero-container {
+    width: 100%;
+    margin-top: 102px; /* Clears navbar */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-image-wrapper {
+    width: 100%;
+    height: 282.38px; /* Your exact Figma height */
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This makes the 450px wide image fit nicely in 360px */
+    display: block;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Your dark tint */
+}
+
+.hero-text {
+    position: absolute;
+    top: 40%; /* Centers text vertically on the image */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+    z-index: 2;
+}
+
+.hero-text h1 {
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+
+/* .hero-content h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.hero-content p {
+    font-size: 14px;
+    margin-top: 8px;
+} */
+
+
+/* Add this after the hero section in your HTML or apply to the next section */
+.spacer {
+    height: 180px; /* This creates the gap needed for the hanging form */
+}
+
+/* Form Styling */
+.input-group {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    gap: 10px;
+}
+
+.input-group input {
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
+.form-row {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-search {
+    background-color: #f01d0d;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: auto;
+    cursor: pointer;
+}
+
+
+/* KILL HORIZONTAL SCROLL FOR GOOD (Just a reminder to keep this at the top) */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.main-body {
+    width: 100%;
+    max-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Extra padding to make sure the shadow isn't cut off by the screen edges */
+    padding: 0 20px 40px 20px; 
+}
+
+/* Spacer for the hero-form overlap above */
+.form-spacer {
+    height: 90px; 
+}
+
+/* THE FLOATING EFFECT CONTAINER */
+.floating-promo-container {
+    width: 100%;
+    max-width: 360px; /* Limits to your mobile view width */
+    height: auto;
+    border-radius: 20px; /* Curves the corners just like your Figma */
+    
+    /* Crucial: Keeps the image rounded to match the container's corners */
+    overflow: hidden; 
+    
+    /* Optional: A very light border to define the edge */
+    border: 1px solid rgba(0, 0, 0, 0.05); 
+    
+    /* A little extra space below the image */
+    margin-bottom: 20px; 
+}
+
+.promo-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover; /* Ensures the image doesn't distort */
+}
+
+.features-section {
+    width: 100%;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: #000;
+    margin-bottom: 50px;
+}
+
+.feature-card {
+    max-width: 320px;
+    margin-bottom: 60px; /* Space between features */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    background-color: #FFF5F5; /* Very light red tint from your design */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.icon-circle img {
+    width: 40px; /* Adjust based on your icon size */
+    height: auto;
+}
+
+.feature-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 15px;
+}
+
+.feature-card p {
+    width: 272px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666; /* Greyish text to match Figma */
+}
+
+
+.onboarding-section {
+    width: 100%;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.onboarding-section .section-title {
+    font-size: 26px;
+    max-width: 300px; /* Forces the text to wrap like in your Figma */
+    line-height: 1.3;
+    margin-bottom: 50px;
+}
+
+.step-card {
+    max-width: 300px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    background-color: #f01d0d; /* Your brand red */
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.step-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.step-card p {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Big Red Button at the Bottom */
+.btn-driver-signup {
+    background-color: #f01d0d;
+    color: white;
+    border: none;
+    width: 200px;
+    padding: 18px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.btn-driver-signup:hover {
+    background-color: #d81a0b;
+}
+
+.secondary-promo-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px 60px 20px; /* Generous padding at the bottom */
+}
+
+/* If you haven't already, make sure this shadow is in your CSS */
+.floating-promo-container {
+    width: 100%;
+    max-width: 360px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* If you want this section to have a slightly different vibe */
+
+
+/* Ensure the titles are consistent across the whole page */
+.section-title {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 40px;
+    padding: 0 20px;
+}
+
+
+/* 1. App Download */
+.app-download {
+    padding: 50px 20px 0 20px;
+    text-align: center;
+    background-color: #FFF9F9; /* Very light pink/white */
+}
+
+.app-download h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.app-download h2 span {
+    color: #f01d0d;
+}
+
+.store-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.store-buttons img {
+    height: 40px;
+}
+
+.phone-mockup {
+    width: 100%;
+    max-width: 300px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* 2. Newsletter (Red Box) */
+.newsletter {
+    background-color: #f01d0d;
+    padding: 40px 20px;
+    text-align: center;
+    color: white;
+}
+
+.newsletter h3 {
+    font-size: 20px;
+    margin-bottom: 25px;
+    line-height: 1.4;
+}
+
+.subscribe-box {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.subscribe-box input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.subscribe-box button {
+    width: 100%;
+    padding: 15px;
+    background: white;
+    color: #f01d0d;
+    border: none;
+    border-radius: 5px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+/* 3. Footer Links */
+.footer-links {
+    padding: 50px 20px;
+    background: white;
+}
+
+.footer-logo {
+    width: 150px;
+    margin-bottom: 40px;
+}
+
+.links-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.link-column h4 {
+    margin-bottom: 15px;
+    color: #060057;
+}
+
+.link-column a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.social-icons {
+    margin: 40px 0 20px 0;
+    display: flex;
+    gap: 20px;
+    font-size: 24px;
+    color: #060057;
+}
+
+.contact-info p {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.copyright {
+    margin-top: 40px;
+    font-size: 14px;
+    color: #666;
+}
+
+.login-body {
+    background-color: #ffffff;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-container {
+    padding: 20px;
+    max-width: 360px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.login-header {
+    height: 102px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.login-content h2 {
+    color: #060057;
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.login-content p {
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+
+.input-field {
+    margin-bottom: 25px;
+}
+
+.input-field label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.forgot-pass {
+    color: #f01d0d;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+}
+
+.input-wrapper i {
+    position: absolute;
+    right: 15px;
+    font-size: 22px;
+    color: #f01d0d;
+}
+
+.btn-login {
+    width: 100%;
+    background-color: #f01d0d;
+    color: white;
+    padding: 18px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.signup-prompt {
+    text-align: center;
+    margin-top: 30px !important;
+}
+
+.signup-prompt a {
+    color: #f01d0d;
+    font-weight: 700;
+    text-decoration: none;
+}
