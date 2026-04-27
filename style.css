@@ -644,6 +644,11 @@ html, body {
     color: #333;
 }
 
+.input-wrapper i {
+    cursor: pointer;
+    padding: 5px; /* Makes the clickable area a bit larger */
+}
+
 .label-row {
     display: flex;
     justify-content: space-between;
@@ -700,4 +705,262 @@ html, body {
     color: #f01d0d;
     font-weight: 700;
     text-decoration: none;
+}
+
+/* Account Tabs */
+.account-tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee;
+}
+
+.tab {
+    flex: 1;
+    text-align: center;
+    padding: 15px 0;
+    font-weight: 700;
+    color: #BDBDBD; /* Greyed out when not active */
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.tab.active {
+    color: #f01d0d; /* Brand Red */
+    border-bottom: 2px solid #f01d0d;
+}
+
+/* Phone Input Styling */
+.phone-input-container {
+    display: flex;
+    gap: 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.prefix {
+    background-color: #fafafa;
+    padding: 15px;
+    font-weight: 700;
+    border-right: 1px solid #ccc;
+    color: #000;
+}
+
+.phone-input-container .input-wrapper {
+    flex: 1;
+}
+
+.phone-input-container input {
+    border: none !important; /* Remove border since container has it */
+}
+
+/* Checkbox Styling */
+.checkbox-container {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+.checkbox-container input {
+    width: 22px;
+    height: 22px;
+    margin-top: 3px;
+    accent-color: #f01d0d;
+}
+
+.checkbox-container label {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.4;
+}
+
+.standard-input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+/* Progress Bar */
+.progress-container {
+    width: 100%;
+    height: 6px;
+    background-color: #060057; /* The dark navy blue */
+    margin-bottom: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #f01d0d; /* Your brand red */
+    transition: width 0.3s ease;
+}
+
+/* Two-column Grid */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.form-grid .standard-input {
+    padding: 10px 12px; /* Smaller padding */
+    font-size: 14px;    /* Smaller text */
+    height: 45px;       /* Consistent height */
+}
+
+/* Category Cards */
+.category-section {
+    margin-top: 20px;
+}
+
+.kyc-form select.standard-input {
+    padding: 8px 10px !important;
+    font-size: 13px !important;
+    height: 40px !important;
+    appearance: auto; /* Ensures the dropdown arrow shows up */
+}
+
+.category-section label {
+    margin-bottom: 10px;
+}
+
+.category-card {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    background: white;
+    transition: all 0.2s ease;
+}
+
+.category-card:has(input[type="radio"]:checked) {
+    background-color: #FFF5F5;
+    border-color: #f01d0d;
+    color: #f01d0d;
+}
+
+.category-card:has(input[type="radio"]:checked) .radio-custom {
+    border-color: #f01d0d;
+    background-color: #f01d0d;
+}
+
+/* Make sure the radio stays hidden but functional */
+.category-card input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+
+
+.category-card input {
+    display: none; /* Hide the default radio dot */
+}
+
+.radio-custom {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    margin-right: 15px;
+    position: relative;
+}
+
+.category-card.active .radio-custom {
+    border-color: #f01d0d;
+    background-color: #f01d0d;
+}
+
+.category-card input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+}
+
+/* Skip Link */
+.skip-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.skip-link a {
+    color: #f01d0d;
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+/* Segmented Progress Bar */
+.progress-container {
+    display: flex;
+    gap: 5px;
+    width: 100%;
+    height: 6px;
+    margin-bottom: 40px;
+}
+
+.progress-segment {
+    flex: 1;
+    background-color: #060057; /* Dark Navy */
+    border-radius: 10px;
+}
+
+.progress-segment.active {
+    background-color: #f01d0d; /* Brand Red */
+}
+
+/* Upload Zone */
+.upload-zone {
+    width: 100%;
+    height: 150px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #fff;
+    margin-bottom: 30px;
+}
+
+.upload-zone i {
+    font-size: 40px;
+    color: #333;
+}
+
+/* Buttons */
+.button-group {
+    margin-top: 20px;
+}
+
+.btn-previous {
+    width: 100%;
+    background-color: white;
+    color: #060057;
+    border: 2px solid #060057;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.btn-login { /* Reusing your existing login/red button style */
+    width: 100%;
+    background-color: #f01d0d;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
 }
