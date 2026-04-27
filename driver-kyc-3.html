@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financials - A1Transit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-body">
+
+    <div class="login-container">
+        <div class="login-header">
+            <img src="assets/logo.png" alt="Logo" class="logo">
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-segment active"></div>
+            <div class="progress-segment active"></div>
+            <div class="progress-segment active"></div>
+        </div>
+
+        <div class="login-content">
+            <h2>Financials</h2>
+            <p>Input your bank details and submit</p>
+
+            <form class="kyc-form" id="kycForm3">
+                <div class="input-field">
+                    <label>Bank</label>
+                    <select class="standard-input" name="bankName" required>
+                        <option value="">Select Bank</option>
+                        <option value="access">Access Bank</option>
+                        <option value="gtbank">GTBank</option>
+                        <option value="zenith">Zenith Bank</option>
+                        <option value="kuda">Kuda Bank</option>
+                    </select>
+                </div>
+
+                <div class="input-field">
+                    <label>Account Number</label>
+                    <input type="number" class="standard-input" placeholder="Enter account number" name="accountNumber" required>
+                </div>
+
+                <div class="input-field">
+                    <label>Account Name</label>
+                    <input type="text" class="standard-input" placeholder="Enter account name" name="accountName" required>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="btn-previous" onclick="history.back()">Previous</button>
+                    <button type="submit" class="btn-login">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
