@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp - A1Transit</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body class="login-body">
+
+    <div class="login-container">
+        <div class="login-header">
+            <a href="index.html"><img src="assets/logo.png" alt="Logo" class="logo"></a>
+        </div>
+
+        <div class="account-tabs">
+            <div class="tab active" id="driverTab">Driver Account</div>
+            <div class="tab" id="passengerTab">Passenger Account</div>
+        </div>
+
+        <div class="login-content">
+            <h2 id="signupTitle">Driver SignUp</h2>
+            <p>Create an account to get started</p>
+
+            <form id="signupForm">
+                <div class="input-field">
+                    <label>First Name</label>
+                    <input type="text" class="standard-input" placeholder="Enter first name">
+                </div>
+
+                <div class="input-field">
+                    <label>Last Name</label>
+                    <input type="text" class="standard-input" placeholder="Enter last name">
+                </div>
+
+                <div class="input-field">
+                    <label>Phone Number</label>
+                    <div class="phone-input-container">
+                        <div class="prefix">NG+234</div>
+                        <div class="input-wrapper">
+                            <input type="tel" placeholder="Phone number">
+                            <i class='bx bx-phone'></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-field">
+                    <label>Email Address</label>
+                    <div class="input-wrapper">
+                        <input type="email" placeholder="Enter email">
+                        <i class='bx bx-envelope'></i>
+                    </div>
+                </div>
+
+                <div class="input-field">
+                    <label>Password</label>
+                    <div class="input-wrapper">
+                        <input type="password" placeholder="Create password">
+                        <i class='bx bx-hide'></i>
+                    </div>
+                </div>
+
+                <div id="driverFields">
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="confirmData">
+                        <label for="confirmData">I confirm the information provided is correct as they appear on my legal document</label>
+                    </div>
+                </div>
+
+                <div id="passengerFields" style="display: none;">
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="termsData">
+                        <label for="termsData">By clicking, you agree to our <a href="#" style="color: #f01d0d;">Terms & Conditions</a> and <a href="#" style="color: #f01d0d;">Privacy Policy</a></label>
+                    </div>
+                </div>
+
+               <button type="submit" class="btn-login" onclick="window.location.href='driver-kyc-1.html'">
+    Create Account
+</button>
+            </form>
+
+            <p class="signup-prompt">Got an account? <a href="login.html">Sign In</a></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
